@@ -1,66 +1,56 @@
 <template>
-	<ul>
-		<li v-for="item in menu"
-		v-bind:class="{ active: item.active }"
-		@click="goToPage(item)">
-			{{ item.title }} 
-		</li>
-	</ul>
+ <span class="platenumberdecor"> Plate Number </span>  <span class="platenumber">{{ car.plateNumber }}</span>
+<div class="horsePower"> Horse Power <span class="color600"> {{ car.horsePower }} </span>  </div>
 
-
-
+<span v-if="isCoolCar(car)"> ahuennna </span>
+<span v-if="price(car)"> leta mashina </span>
 </template>
 
 <script>
 export default {
-	data () {
+	data () { 
 		return {
-			menu: [
-				{
-					title: "Home",
-					active: true
-				},
-				{
-					title: "Team",
-					active: false
-				},
-				{
-					title: "About",
-					active: false
-				},
-				{
-					title: "Contact",
-					active: false
-				},
-				{
-					title: "real cool",
-					active: false
-				},
-			]
+			car:{
+				plateNumber: "AA-3333",
+				horsePower: 1200,
+				price: 111,
+			}
 		}
 	},
 	methods: {
-		goToPage(menuItem) {
-			for (let i in this.menu) {
-				this.menu[i].active = false
-			}
-		menuItem.active = true	
+		isCoolCar (car) {
+			return (car.horsePower > 1000)
+		},	
+		price (car) {
+			return (car.price < 3000)
 		}
 	}
-}
-</script>
 
+} 
+
+</script>
 
 <style>
 
-.active{
-	color: red;
+.platenumberdecor{
+	color: orange;
+
 }
 
-li:hover{
-
-	color: blue;
+	.platenumber{
+		color: red;
 }
 
+	.horsePower{
+		color: green;
+
+	}
+
+	.color600{
+		color: red;
+
+	}
+
+ 
 </style>
 
