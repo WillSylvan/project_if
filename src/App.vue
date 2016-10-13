@@ -2,10 +2,8 @@
  	<input v-model="user.name">
 	<input type="password" v-model="user.pass">
 
-	<button @click="authorize(user.name)">LogIn</button>
-	<pre>
-	 {{ user | json }}
-	</pre>
+	<button @click="authorize(user.name, user.pass)">LogIn</button>
+	<pre>{{ user | json }}</pre>
 </template>
 
 <script>
